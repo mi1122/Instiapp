@@ -1,0 +1,73 @@
+﻿@model IEnumerable<StuRegistrationApp.Models.registration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    @using (Html.BeginForm("Index","Registration",FormMethod.Get))
+    {
+    <b>Search By:</b>@Html.RadioButton("SearchBy", "studentname")<text>StudentName</text>
+    @Html.RadioButton("SearchBy", "user_id")<text>System User</text>
+    @Html.RadioButton("SearchBy", "subjectstream")<text>
+    Subject</text>
+
+        <br />
+        @Html.TextBox("search")<input type="submit" value="search" />
+
+
+        }
+
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.studentname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.registereddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subjectstream)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.uername)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.studentname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.birthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.registereddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subjectstream)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.uername)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

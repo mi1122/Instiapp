@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudentRegistrationDBModelStoreContainer" CdmEntityContainer="StudentRegistrationDBEntities">
+    <EntitySetMapping Name="registrations">
+      <EntityTypeMapping TypeName="StudentRegistrationDBModel.registration">
+        <MappingFragment StoreEntitySet="registration">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="studentname" ColumnName="studentname" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="registereddate" ColumnName="registereddate" />
+          <ScalarProperty Name="subjectstream_id" ColumnName="subjectstream_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subjectstreams">
+      <EntityTypeMapping TypeName="StudentRegistrationDBModel.subjectstream">
+        <MappingFragment StoreEntitySet="subjectstream">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="StudentRegistrationDBModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="uername" ColumnName="uername" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentRegistrationDBModel4.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="registration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="studentname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="birthday" Type="date" Nullable="false" />
+    <Property Name="registereddate" Type="date" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="subjectstream" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="subjectstream">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uername" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_registration_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="registration" Type="Self.registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="registration">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StudentRegistrationDBModel4StoreContainer">
+    <EntitySet Name="registration" EntityType="Self.registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subjectstream" EntityType="Self.subjectstream" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_registration_user" Association="Self.FK_registration_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="registration" EntitySet="registration" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

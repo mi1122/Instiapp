@@ -1,0 +1,58 @@
+﻿@model StuRegistrationApp.Models.registration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>registration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.studentname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.studentname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.registereddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.registereddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.subjectstream)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subjectstream)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.uername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.uername)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
